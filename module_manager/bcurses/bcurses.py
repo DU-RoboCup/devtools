@@ -28,9 +28,7 @@ Created By: Paul Heinen
 import os
 import platform
 import locale
-import curses
 import sqlite3
-from curses import wrapper
 
 def main(stdscr):
     # Set Language Locale
@@ -41,6 +39,9 @@ def main(stdscr):
     if(platform.system() == 'Windows'):
         print("Sorry, the included curses python module doesn't support Windows.\nYou should be running this in the Development Environment anyway!")
         return
+    else:
+        import curses
+        from curses import wrapper
 
     # Curses draws in the weird (y,x) format from (0,0) to (MAX_HEIGHT-1, MAX_WIDTH-1)
     MAX_HEIGHT, MAX_WIDTH = curses.LINES, curses.COLS
